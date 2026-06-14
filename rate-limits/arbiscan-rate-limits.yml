@@ -1,0 +1,175 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Arbiscan
+providerId: arbiscan
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Blockchain
+  - Cryptocurrency
+  - Arbitrum
+  - Layer 2
+  - EVM
+  - Web3
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: >-
+  Machine-readable rate limit definitions for the Arbiscan API surface. Arbiscan operates as part of
+  the Etherscan unified V2 platform targeting Arbitrum One (chainid 42161). Rate limits are enforced
+  per API key across all tiers from free community access through enterprise dedicated infrastructure.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: free
+    name: Free Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 3
+    burst: 5
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: free
+    name: Free Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 100000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: lite
+    name: Lite Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 5
+    burst: 10
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: lite
+    name: Lite Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 100000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: standard
+    name: Standard Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 10
+    burst: 20
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: standard
+    name: Standard Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 200000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: advanced
+    name: Advanced Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 20
+    burst: 40
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: advanced
+    name: Advanced Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 500000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: professional
+    name: Professional Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 30
+    burst: 60
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: professional
+    name: Professional Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 1000000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: pro-plus
+    name: Pro Plus Tier Rate Limit
+    scope: api-key
+    metric: requests_per_second
+    limit: 30
+    burst: 60
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: pro-plus
+    name: Pro Plus Tier Daily Quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 1500000
+    timeFrame: day
+    applies:
+      - Arbiscan API
+  - tier: enterprise
+    name: Enterprise Negotiated Rate Limit
+    scope: contract
+    metric: requests_per_second
+    limit: -1
+    burst: -1
+    timeFrame: second
+    applies:
+      - Arbiscan API
+  - tier: enterprise
+    name: Enterprise Daily Quota
+    scope: contract
+    metric: requests_per_day
+    limit: -1
+    timeFrame: day
+    applies:
+      - Arbiscan API
+policies:
+  - name: Backoff Strategy
+    description: >-
+      Clients should implement exponential backoff with jitter, honoring the Retry-After header
+      when present. The Arbiscan API returns HTTP 429 when rate limits are exceeded.
+  - name: Burst Handling
+    description: >-
+      Short bursts above the steady-state per-second limit are tolerated up to the documented burst
+      ceiling before throttling engages.
+  - name: Quota Reset
+    description: >-
+      Daily quotas reset at midnight UTC. Per-second windows reset on a rolling basis.
+  - name: Fair Use
+    description: >-
+      Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
+      may be subject to fair-use throttling or require dedicated infrastructure upgrades.
+  - name: Chain Scope
+    description: >-
+      Rate limits apply globally across all chains accessed via the unified Etherscan V2 API key.
+      Calls to Arbitrum One (chainid 42161) count toward the same quota as calls to other chains
+      under the same API key.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

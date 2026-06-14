@@ -1,0 +1,78 @@
+aid: arbiscan
+name: Arbiscan
+description: >-
+  Arbiscan is the official blockchain explorer, search, API, and analytics platform for Arbitrum One,
+  the leading Ethereum Layer 2 scaling network. It enables developers and users to query Arbitrum One
+  transaction histories, token transfers (ERC-20, ERC-721, ERC-1155), smart contract source code and ABIs,
+  block data, and L2 network statistics. The Arbiscan API is part of the Etherscan unified V2 platform,
+  accessible across 60+ EVM-compatible chains with a single API key. A free tier provides 100,000 daily
+  calls at 3 requests per second; paid tiers scale up to enterprise with unmetered access.
+url: https://raw.githubusercontent.com/api-evangelist/arbiscan/refs/heads/main/apis.yml
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+type: Index
+position: Consumer
+access: 3rd-Party
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Blockchain
+  - Cryptocurrency
+  - Arbitrum
+  - Layer 2
+  - EVM
+  - Web3
+  - L2
+apis:
+  - aid: arbiscan:arbiscan
+    name: Arbiscan API
+    description: >-
+      The Arbiscan API provides programmatic access to Arbitrum One blockchain data, including account
+      balances, transaction histories, internal transactions, ERC-20/ERC-721/ERC-1155 token transfers,
+      smart contract verification and ABI retrieval, block rewards, event logs, and L2 network statistics
+      such as gas prices and total supply. Powered by the Etherscan V2 unified platform with chainid 42161
+      for Arbitrum One, a single API key works across all supported EVM networks.
+    humanURL: https://docs.arbiscan.io/
+    baseURL: https://api.etherscan.io/v2/api
+    tags:
+      - Blockchain
+      - Cryptocurrency
+      - Arbitrum
+      - Layer 2
+      - EVM
+      - Transactions
+      - Smart Contracts
+      - Tokens
+    properties:
+      - url: https://docs.arbiscan.io/
+        type: Documentation
+      - url: https://arbiscan.io/apis
+        type: Pricing
+      - url: https://arbiscan.io/myapikey
+        type: SignUp
+      - url: https://arbiscan.io/apiterms
+        type: TermsOfService
+      - url: plans/arbiscan-plans-pricing.yml
+        type: Plans
+      - url: rate-limits/arbiscan-rate-limits.yml
+        type: RateLimits
+      - url: finops/arbiscan-finops.yml
+        type: FinOps
+common:
+  - url: https://arbiscan.io/
+    type: Portal
+  - url: https://docs.arbiscan.io/
+    type: Documentation
+  - url: https://arbiscan.io/apis
+    type: Pricing
+  - url: https://arbiscan.io/apiterms
+    type: TermsOfService
+  - url: https://arbiscan.io/myapikey
+    type: SignUp
+  - url: https://docs.etherscan.io/llms.txt
+    type: LLMsTxt
+  - type: GitHubOrganization
+    url: https://github.com/arbiscan
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

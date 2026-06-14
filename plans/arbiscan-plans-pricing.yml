@@ -1,0 +1,357 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Arbiscan
+providerId: arbiscan
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Blockchain
+  - Cryptocurrency
+  - Arbitrum
+  - Layer 2
+  - EVM
+  - Web3
+description: >-
+  Machine-readable plans and pricing for the Arbiscan API, part of the Etherscan unified V2 platform.
+  Arbiscan API subscriptions are managed through Etherscan's plan system with chainid 42161 for Arbitrum One.
+  Prices and limits reflect the Etherscan V2 published plan tiers as of June 2026.
+plans:
+  - id: arbiscan-free
+    name: Free
+    type: freemium
+    description: >-
+      Free community tier for the Arbiscan API. Supports selected chains including Arbitrum One.
+      Requires attribution. Suited for evaluation, prototyping, and low-volume integrations.
+    entries:
+      - label: Daily API Calls
+        description: Maximum API calls per day on the free tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 100000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the free tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 3
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Public Documentation
+      - name: Community Support
+      - name: Selected Chains Access
+      - name: Arbiscan API
+  - id: arbiscan-lite
+    name: Lite
+    type: paid
+    description: >-
+      Entry paid tier for Arbiscan. Provides access to all 60+ supported chains including Arbitrum One,
+      with higher rate limits and community support.
+    entries:
+      - label: Monthly Cost
+        description: Fixed monthly subscription cost
+        name: monthly_cost
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '49.00'
+        userMultiplied: false
+      - label: Daily API Calls
+        description: Maximum API calls per day on the Lite tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 100000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the Lite tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 5
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Supported Chains Access
+      - name: Community Support
+      - name: Arbiscan API
+  - id: arbiscan-standard
+    name: Standard
+    type: paid
+    description: >-
+      Standard paid tier for Arbiscan. Includes access to Pro endpoints, higher daily call limits,
+      and escalated support.
+    entries:
+      - label: Monthly Cost
+        description: Fixed monthly subscription cost
+        name: monthly_cost
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '199.00'
+        userMultiplied: false
+      - label: Daily API Calls
+        description: Maximum API calls per day on the Standard tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 200000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the Standard tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 10
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Supported Chains Access
+      - name: Pro Endpoints
+      - name: Escalated Support
+      - name: Arbiscan API
+  - id: arbiscan-advanced
+    name: Advanced
+    type: paid
+    description: >-
+      Advanced paid tier for Arbiscan. Higher rate limits, 500,000 daily calls, Pro endpoints,
+      and escalated support.
+    entries:
+      - label: Monthly Cost
+        description: Fixed monthly subscription cost
+        name: monthly_cost
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '299.00'
+        userMultiplied: false
+      - label: Daily API Calls
+        description: Maximum API calls per day on the Advanced tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 500000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the Advanced tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 20
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Supported Chains Access
+      - name: Pro Endpoints
+      - name: Escalated Support
+      - name: Arbiscan API
+  - id: arbiscan-professional
+    name: Professional
+    type: paid
+    description: >-
+      Professional paid tier for Arbiscan. 1,000,000 daily calls, 30 requests per second,
+      Pro endpoints, and escalated support.
+    entries:
+      - label: Monthly Cost
+        description: Fixed monthly subscription cost
+        name: monthly_cost
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '399.00'
+        userMultiplied: false
+      - label: Daily API Calls
+        description: Maximum API calls per day on the Professional tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 1000000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the Professional tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 30
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Supported Chains Access
+      - name: Pro Endpoints
+      - name: Escalated Support
+      - name: Arbiscan API
+  - id: arbiscan-pro-plus
+    name: Pro Plus
+    type: paid
+    description: >-
+      Pro Plus tier for Arbiscan. 1,500,000 daily calls, 30 requests per second, Pro endpoints,
+      Address Metadata endpoint access, and one app license.
+    entries:
+      - label: Monthly Cost
+        description: Fixed monthly subscription cost
+        name: monthly_cost
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '899.00'
+        userMultiplied: false
+      - label: Daily API Calls
+        description: Maximum API calls per day on the Pro Plus tier
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: 1500000
+        timeFrame: day
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per second on the Pro Plus tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: 30
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Supported Chains Access
+      - name: Pro Endpoints
+      - name: Address Metadata Endpoint
+      - name: One App License
+      - name: Escalated Support
+      - name: Arbiscan API
+  - id: arbiscan-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Custom-negotiated enterprise tier for Arbiscan. Includes dedicated infrastructure, unmetered
+      calls, contractual SLAs, and maximum reliability for high-volume production workloads.
+    entries:
+      - label: Daily API Calls
+        description: Unmetered daily API calls subject to fair use and dedicated infrastructure
+        name: daily_calls
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: day
+        geo: configurable
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Rate Limit
+        description: Unmetered rate, negotiated per contract
+        name: rate_limit
+        type: rate
+        metric: requests_per_second
+        limit: -1
+        timeFrame: second
+        geo: configurable
+        domains:
+          - https://api.etherscan.io/v2/api
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Dedicated Infrastructure
+      - name: Unmetered API Calls
+      - name: Contractual SLA
+      - name: 24/7 Dedicated Support
+      - name: Maximum Reliability
+      - name: All Supported Chains Access
+      - name: Arbiscan API
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
