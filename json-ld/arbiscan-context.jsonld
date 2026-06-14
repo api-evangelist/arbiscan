@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "arb": "https://api-evangelist.com/vocab/arbiscan#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Transaction": "schema:Action",
+    "TokenTransfer": "arb:TokenTransfer",
+    "SmartContract": "arb:SmartContract",
+    "Block": "arb:Block",
+    "EventLog": "arb:EventLog",
+    "Address": "schema:Thing",
+    "Token": "arb:Token",
+    "GasOracle": "arb:GasOracle",
+    "NetworkStats": "arb:NetworkStats",
+
+    "id": "@id",
+    "type": "@type",
+
+    "hash": "arb:hash",
+    "blockNumber": "arb:blockNumber",
+    "blockHash": "arb:blockHash",
+    "transactionIndex": "arb:transactionIndex",
+    "nonce": "arb:nonce",
+
+    "from": {
+      "@id": "schema:agent",
+      "@type": "@id"
+    },
+    "to": {
+      "@id": "schema:recipient",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "gas": "arb:gas",
+    "gasPrice": "arb:gasPrice",
+    "gasUsed": "arb:gasUsed",
+    "cumulativeGasUsed": "arb:cumulativeGasUsed",
+    "isError": "arb:isError",
+    "input": "arb:input",
+    "confirmations": "arb:confirmations",
+
+    "timeStamp": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:integer"
+    },
+
+    "contractAddress": {
+      "@id": "arb:contractAddress",
+      "@type": "@id"
+    },
+    "sourceCode": "arb:sourceCode",
+    "abi": "arb:abi",
+    "contractName": "schema:name",
+    "compilerVersion": "arb:compilerVersion",
+    "optimizationUsed": "arb:optimizationUsed",
+    "constructorArguments": "arb:constructorArguments",
+    "proxy": "arb:proxy",
+    "implementation": {
+      "@id": "arb:implementation",
+      "@type": "@id"
+    },
+    "licenseType": "arb:licenseType",
+
+    "tokenName": "schema:name",
+    "tokenSymbol": "arb:tokenSymbol",
+    "tokenDecimal": "arb:tokenDecimal",
+
+    "topics": "arb:topics",
+    "data": "arb:data",
+    "logIndex": "arb:logIndex",
+
+    "safeGasPrice": "arb:safeGasPrice",
+    "proposeGasPrice": "arb:proposeGasPrice",
+    "fastGasPrice": "arb:fastGasPrice",
+    "lastBlock": "arb:lastBlock",
+    "suggestBaseFee": "arb:suggestBaseFee",
+    "gasUsedRatio": "arb:gasUsedRatio",
+
+    "chainId": "arb:chainId",
+    "networkName": "schema:name",
+    "totalSupply": "arb:totalSupply",
+    "blockReward": "arb:blockReward",
+    "blockMiner": "arb:blockMiner"
+  }
+}

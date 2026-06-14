@@ -1,0 +1,517 @@
+openapi: 3.0.3
+info:
+  title: Arbiscan API
+  description: >-
+    Arbiscan is the official blockchain explorer and API platform for Arbitrum One,
+    the leading Ethereum Layer 2 scaling network. Built on the Etherscan V2 unified
+    platform, the Arbiscan API provides programmatic access to Arbitrum One blockchain
+    data including account balances, transaction histories, internal transactions,
+    ERC-20/ERC-721/ERC-1155 token transfers, smart contract verification and ABI
+    retrieval, block rewards, event logs, and L2 network statistics such as gas prices
+    and total supply. The chainid for Arbitrum One is 42161. A single Etherscan V2 API
+    key works across all 60+ supported EVM networks.
+  version: "2.0"
+  contact:
+    name: Arbiscan Support
+    url: https://docs.arbiscan.io/
+  termsOfService: https://arbiscan.io/apiterms
+  license:
+    name: Arbiscan API Terms
+    url: https://arbiscan.io/apiterms
+servers:
+  - url: https://api.etherscan.io/v2/api
+    description: Etherscan unified V2 API endpoint (use chainid=42161 for Arbitrum One)
+security:
+  - apiKeyAuth: []
+tags:
+  - name: Accounts
+    description: Address balances, transactions, token holdings, and funding origins
+  - name: Contracts
+    description: Smart contract source code, ABI, creation info, and verification
+  - name: Transactions
+    description: Transaction status, receipts, counts, and advanced filtering
+  - name: Blocks
+    description: Block details, rewards, countdown, and block-by-timestamp lookup
+  - name: Logs
+    description: Event log queries by address, topic, and block range
+  - name: Tokens
+    description: ERC-20, ERC-721, and ERC-1155 token supply, holders, and metadata
+  - name: Gas Tracker
+    description: Arbitrum One gas oracle and gas price estimates
+  - name: Stats
+    description: Arbitrum One network statistics, supply data, and daily metrics
+paths:
+  /:
+    get:
+      summary: Arbiscan API Endpoint
+      description: >-
+        All Arbiscan API calls are issued against the Etherscan V2 unified endpoint.
+        Set chainid=42161 for Arbitrum One. The module and action parameters select
+        the operation. An API key is required for all calls.
+      operationId: arbiscanApiCall
+      tags:
+        - Accounts
+        - Contracts
+        - Transactions
+        - Blocks
+        - Logs
+        - Tokens
+        - Gas Tracker
+        - Stats
+      parameters:
+        - name: chainid
+          in: query
+          required: true
+          description: >-
+            Numeric chain ID. Use 42161 for Arbitrum One. Other Arbitrum networks:
+            42170 (Arbitrum Nova), 421614 (Arbitrum Sepolia testnet).
+          schema:
+            type: integer
+            example: 42161
+        - name: module
+          in: query
+          required: true
+          description: >-
+            API module name. One of: account, contract, transaction, block,
+            logs, token, gastracker, stats.
+          schema:
+            type: string
+            enum:
+              - account
+              - contract
+              - transaction
+              - block
+              - logs
+              - token
+              - gastracker
+              - stats
+            example: account
+        - name: action
+          in: query
+          required: true
+          description: >-
+            Action within the selected module. See module-specific documentation
+            for available actions.
+          schema:
+            type: string
+            example: balance
+        - name: address
+          in: query
+          required: false
+          description: Arbitrum One address (checksummed or lowercase) for account or token operations.
+          schema:
+            type: string
+            example: "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+        - name: contractaddress
+          in: query
+          required: false
+          description: Smart contract or token contract address.
+          schema:
+            type: string
+            example: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        - name: txhash
+          in: query
+          required: false
+          description: Transaction hash for transaction-specific queries.
+          schema:
+            type: string
+            example: "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+        - name: blockno
+          in: query
+          required: false
+          description: Block number for block-specific queries.
+          schema:
+            type: integer
+            example: 12345678
+        - name: startblock
+          in: query
+          required: false
+          description: Starting block number for range queries (default 0).
+          schema:
+            type: integer
+            example: 0
+        - name: endblock
+          in: query
+          required: false
+          description: Ending block number for range queries (default 99999999).
+          schema:
+            type: integer
+            example: 99999999
+        - name: page
+          in: query
+          required: false
+          description: Page number for paginated results (default 1).
+          schema:
+            type: integer
+            example: 1
+        - name: offset
+          in: query
+          required: false
+          description: Number of results per page (max 10000, default 10).
+          schema:
+            type: integer
+            example: 10
+        - name: sort
+          in: query
+          required: false
+          description: Sort order for results.
+          schema:
+            type: string
+            enum: [asc, desc]
+            example: asc
+        - name: tag
+          in: query
+          required: false
+          description: Block tag (latest, earliest, pending) or hex block number for balance queries.
+          schema:
+            type: string
+            example: latest
+        - name: topic0
+          in: query
+          required: false
+          description: Keccak-256 hash of the event signature for log filtering.
+          schema:
+            type: string
+        - name: topic1
+          in: query
+          required: false
+          description: Second event topic for log filtering.
+          schema:
+            type: string
+        - name: topic0_1_opr
+          in: query
+          required: false
+          description: Operator between topic0 and topic1 (and or or).
+          schema:
+            type: string
+            enum: [and, or]
+        - name: fromBlock
+          in: query
+          required: false
+          description: Starting block for log queries.
+          schema:
+            type: integer
+        - name: toBlock
+          in: query
+          required: false
+          description: Ending block for log queries.
+          schema:
+            type: integer
+        - name: timestamp
+          in: query
+          required: false
+          description: Unix timestamp for block-by-timestamp queries.
+          schema:
+            type: integer
+        - name: closest
+          in: query
+          required: false
+          description: Direction to find closest block to timestamp (before or after).
+          schema:
+            type: string
+            enum: [before, after]
+        - name: boolean
+          in: query
+          required: false
+          description: Boolean value for proxy-verification queries (true or false).
+          schema:
+            type: string
+            enum: ["true", "false"]
+        - name: apikey
+          in: query
+          required: true
+          description: Your Etherscan/Arbiscan API key from https://arbiscan.io/myapikey
+          schema:
+            type: string
+            example: YourApiKeyToken
+      responses:
+        "200":
+          description: Successful response. The result field contains module-specific payload.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+              examples:
+                balance:
+                  summary: Native ETH balance response
+                  value:
+                    status: "1"
+                    message: OK
+                    result: "2483689898977207"
+                txlist:
+                  summary: Transaction list response
+                  value:
+                    status: "1"
+                    message: OK
+                    result:
+                      - blockNumber: "12345678"
+                        timeStamp: "1620000000"
+                        hash: "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                        nonce: "0"
+                        blockHash: "0xabc123"
+                        transactionIndex: "0"
+                        from: "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                        to: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                        value: "1000000000000000000"
+                        gas: "21000"
+                        gasPrice: "100000000"
+                        isError: "0"
+                        txreceipt_status: "1"
+                        input: "0x"
+                        contractAddress: ""
+                        cumulativeGasUsed: "21000"
+                        gasUsed: "21000"
+                        confirmations: "1000"
+                gasOracle:
+                  summary: Gas oracle response
+                  value:
+                    status: "1"
+                    message: OK
+                    result:
+                      SafeGasPrice: "0.01"
+                      ProposeGasPrice: "0.01"
+                      FastGasPrice: "0.01"
+                      LastBlock: "12345678"
+                      suggestBaseFee: "0.01"
+                      gasUsedRatio: "0.5,0.4,0.6"
+        "400":
+          description: Invalid request — missing or malformed parameters.
+        "401":
+          description: Missing or invalid API key.
+        "429":
+          description: Rate limit exceeded. Free tier allows 3 req/s and 100,000 calls/day.
+        "500":
+          description: Internal server error.
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: apikey
+      description: Etherscan V2 API key from https://arbiscan.io/myapikey
+  schemas:
+    ApiResponse:
+      type: object
+      description: Standard Arbiscan/Etherscan V2 API response envelope.
+      properties:
+        status:
+          type: string
+          description: '"1" indicates success; "0" indicates an error or no results.'
+          example: "1"
+        message:
+          type: string
+          description: Human-readable status message (OK, NOTOK, No transactions found, etc.).
+          example: OK
+        result:
+          description: >-
+            Module-specific response payload. May be a string (for single-value
+            results like balances), an array of objects (for lists), or an object
+            (for gas oracle, contract source, etc.).
+    Transaction:
+      type: object
+      description: A normal (external) transaction on Arbitrum One.
+      properties:
+        blockNumber:
+          type: string
+          example: "12345678"
+        timeStamp:
+          type: string
+          example: "1620000000"
+        hash:
+          type: string
+          example: "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+        nonce:
+          type: string
+          example: "0"
+        blockHash:
+          type: string
+        transactionIndex:
+          type: string
+        from:
+          type: string
+          example: "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+        to:
+          type: string
+          example: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        value:
+          type: string
+          description: Value transferred in wei.
+          example: "1000000000000000000"
+        gas:
+          type: string
+          example: "21000"
+        gasPrice:
+          type: string
+          example: "100000000"
+        isError:
+          type: string
+          enum: ["0", "1"]
+          description: '"0" = success, "1" = error/reverted.'
+        txreceipt_status:
+          type: string
+          enum: ["0", "1"]
+        input:
+          type: string
+          description: Transaction input data (hex-encoded).
+        contractAddress:
+          type: string
+          description: Contract address created if this was a contract deployment.
+        cumulativeGasUsed:
+          type: string
+        gasUsed:
+          type: string
+        confirmations:
+          type: string
+    TokenTransfer:
+      type: object
+      description: An ERC-20 token transfer event on Arbitrum One.
+      properties:
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        hash:
+          type: string
+        nonce:
+          type: string
+        blockHash:
+          type: string
+        from:
+          type: string
+        contractAddress:
+          type: string
+          description: Token contract address.
+          example: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        to:
+          type: string
+        value:
+          type: string
+          description: Amount transferred in token base units.
+        tokenName:
+          type: string
+          example: USD Coin
+        tokenSymbol:
+          type: string
+          example: USDC
+        tokenDecimal:
+          type: string
+          example: "6"
+        transactionIndex:
+          type: string
+        gas:
+          type: string
+        gasPrice:
+          type: string
+        gasUsed:
+          type: string
+        cumulativeGasUsed:
+          type: string
+        confirmations:
+          type: string
+    ContractSource:
+      type: object
+      description: Verified smart contract source code and metadata.
+      properties:
+        SourceCode:
+          type: string
+          description: Solidity or Vyper source code (may be JSON for multi-file contracts).
+        ABI:
+          type: string
+          description: JSON-encoded contract ABI.
+        ContractName:
+          type: string
+        CompilerVersion:
+          type: string
+        OptimizationUsed:
+          type: string
+        Runs:
+          type: string
+        ConstructorArguments:
+          type: string
+        EVMVersion:
+          type: string
+        Library:
+          type: string
+        LicenseType:
+          type: string
+        Proxy:
+          type: string
+          enum: ["0", "1"]
+        Implementation:
+          type: string
+          description: Implementation contract address for proxy contracts.
+        SwarmSource:
+          type: string
+    GasOracle:
+      type: object
+      description: Current gas price recommendations for Arbitrum One.
+      properties:
+        SafeGasPrice:
+          type: string
+          description: Recommended safe (slow) gas price in Gwei.
+          example: "0.01"
+        ProposeGasPrice:
+          type: string
+          description: Recommended standard gas price in Gwei.
+          example: "0.01"
+        FastGasPrice:
+          type: string
+          description: Recommended fast gas price in Gwei.
+          example: "0.01"
+        LastBlock:
+          type: string
+          description: Most recently processed block number.
+        suggestBaseFee:
+          type: string
+          description: Suggested EIP-1559 base fee in Gwei.
+        gasUsedRatio:
+          type: string
+          description: Gas utilization ratios for recent blocks (comma-separated).
+    BlockReward:
+      type: object
+      description: Block reward information for a specific Arbitrum One block.
+      properties:
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        blockMiner:
+          type: string
+        blockReward:
+          type: string
+          description: Block reward in wei.
+        uncles:
+          type: array
+          items:
+            type: object
+        uncleInclusionReward:
+          type: string
+    EventLog:
+      type: object
+      description: A smart contract event log entry from Arbitrum One.
+      properties:
+        address:
+          type: string
+          description: Contract address that emitted the event.
+        topics:
+          type: array
+          items:
+            type: string
+          description: Indexed event parameters including the event signature hash.
+        data:
+          type: string
+          description: Non-indexed event parameters (hex-encoded).
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        gasPrice:
+          type: string
+        gasUsed:
+          type: string
+        logIndex:
+          type: string
+        transactionHash:
+          type: string
+        transactionIndex:
+          type: string

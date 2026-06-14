@@ -58,6 +58,12 @@ apis:
         type: RateLimits
       - url: finops/arbiscan-finops.yml
         type: FinOps
+      - url: openapi/arbiscan-openapi.yml
+        type: OpenAPI
+      - url: json-ld/arbiscan-context.jsonld
+        type: JSONLDContext
+      - url: vocabulary/arbiscan-vocabulary.yml
+        type: Vocabulary
 common:
   - url: https://arbiscan.io/
     type: Portal

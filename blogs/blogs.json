@@ -1,0 +1,15 @@
+{
+  "repo": "arbiscan",
+  "feeds": [
+    {
+      "source": "https://arbiscan.io/",
+      "feed_url": "https://arbiscan.io/",
+      "title": "Arbiscan",
+      "saved": 0,
+      "method": "none",
+      "error": "No blog RSS feed detected on Arbiscan — content deferred to Etherscan blog"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-13T00:00:00Z"
+}

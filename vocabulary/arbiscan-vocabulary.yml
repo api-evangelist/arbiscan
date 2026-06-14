@@ -1,0 +1,301 @@
+vocabulary:
+  name: Arbiscan Vocabulary
+  description: >-
+    Domain vocabulary for the Arbiscan blockchain explorer and API platform,
+    covering Arbitrum One Layer 2 blockchain concepts, transaction types,
+    token standards, smart contract data, and Etherscan V2 API terminology
+    used when querying Arbitrum One data.
+  version: '1.0'
+  created: '2026-06-13'
+  modified: '2026-06-13'
+
+blockchain-concepts:
+  - term: Arbitrum One
+    definition: >-
+      The primary Arbitrum Layer 2 (L2) network, an Ethereum-compatible optimistic
+      rollup chain (chain ID 42161) that executes transactions off-chain and posts
+      compressed proofs to Ethereum mainnet, providing lower fees and higher throughput
+      while inheriting Ethereum security.
+    aliases:
+      - ARB One
+      - Arbitrum L2
+    related:
+      - Optimistic Rollup
+      - Layer 2
+      - Ethereum
+
+  - term: Optimistic Rollup
+    definition: >-
+      A Layer 2 scaling technique that assumes transactions are valid by default
+      and only runs computation (fraud proofs) when a dispute is raised during
+      a challenge window. Arbitrum One uses this approach to batch and settle
+      transactions on Ethereum mainnet.
+    related:
+      - Arbitrum One
+      - Layer 2
+      - Fraud Proof
+
+  - term: Layer 2
+    definition: >-
+      A secondary blockchain framework or protocol built on top of an existing
+      Layer 1 blockchain (such as Ethereum) to improve its scalability, throughput,
+      and transaction cost. Arbitrum One is a leading Ethereum Layer 2 network.
+    aliases:
+      - L2
+    related:
+      - Arbitrum One
+      - Optimistic Rollup
+      - Ethereum
+
+  - term: EVM
+    definition: >-
+      Ethereum Virtual Machine — the sandboxed runtime environment that executes
+      smart contract bytecode. Arbitrum One is EVM-compatible, meaning Ethereum
+      smart contracts and tools work with little or no modification on Arbitrum.
+    related:
+      - Smart Contract
+      - Arbitrum One
+      - Solidity
+
+  - term: Block
+    definition: >-
+      A unit of data on the Arbitrum One chain containing a batch of ordered
+      transactions, a reference to the parent block hash, a miner/sequencer
+      address, and block metadata such as gas used, gas limit, timestamp, and
+      difficulty. Blocks are identified by block number and block hash.
+    related:
+      - Transaction
+      - Block Reward
+      - Sequencer
+
+  - term: Transaction
+    definition: >-
+      A cryptographically signed instruction from an Arbitrum One account that
+      either transfers ETH, interacts with a smart contract, or deploys a new
+      contract. Transactions are identified by their transaction hash and
+      are permanently recorded on-chain once included in a block.
+    related:
+      - Block
+      - Gas
+      - Internal Transaction
+
+  - term: Internal Transaction
+    definition: >-
+      A value transfer or contract call that occurs as a result of smart contract
+      execution, not originating directly from a user-signed transaction. Internal
+      transactions do not appear on-chain individually but are tracked by Arbiscan
+      via execution trace analysis.
+    related:
+      - Transaction
+      - Smart Contract
+      - Trace
+
+  - term: Gas
+    definition: >-
+      The unit measuring computational effort required to execute a transaction
+      or smart contract operation on Arbitrum One. Gas fees are paid in ETH
+      (the native token) and are significantly lower on Arbitrum One than on
+      Ethereum mainnet due to L2 batching.
+    related:
+      - Gas Price
+      - Gas Limit
+      - Transaction
+
+  - term: Gas Price
+    definition: >-
+      The amount of ETH (in Gwei) a user is willing to pay per unit of gas
+      consumed by a transaction. On Arbitrum One, gas prices are determined
+      by the sequencer and fluctuate with network demand, typically ranging
+      from 0.01 to 0.1 Gwei under normal conditions.
+    related:
+      - Gas
+      - Gwei
+      - Transaction
+
+  - term: Gwei
+    definition: >-
+      A denomination of ETH equal to 10^-9 ETH (one billionth of an ether),
+      commonly used to express gas prices. On Arbitrum One, gas prices are
+      often measured in fractions of a Gwei due to the low-cost L2 environment.
+    related:
+      - Gas Price
+      - Wei
+      - ETH
+
+  - term: Wei
+    definition: >-
+      The smallest denomination of ETH, equal to 10^-18 ETH. All ETH balances
+      and value transfers in the Arbiscan API are expressed in wei to avoid
+      floating-point precision issues.
+    related:
+      - Gwei
+      - ETH
+      - Transaction
+
+smart-contracts:
+  - term: Smart Contract
+    definition: >-
+      Self-executing code deployed at a specific address on Arbitrum One that
+      enforces agreement terms when predefined conditions are met. Smart contracts
+      on Arbitrum One are written in EVM-compatible languages such as Solidity
+      or Vyper, and their source code can be verified and published via Arbiscan.
+    related:
+      - ABI
+      - Solidity
+      - Contract Verification
+
+  - term: ABI
+    definition: >-
+      Application Binary Interface — the JSON description of a smart contract's
+      public interface, specifying function names, input/output parameter types,
+      and event signatures. The ABI is required to call contract functions
+      programmatically and is available via the Arbiscan API for verified contracts.
+    related:
+      - Smart Contract
+      - Contract Verification
+      - Function Selector
+
+  - term: Contract Verification
+    definition: >-
+      The process of submitting a smart contract's source code to Arbiscan for
+      compilation and comparison with the deployed on-chain bytecode. Verified
+      contracts allow users and developers to inspect source code, interact with
+      functions directly, and confirm contract behavior.
+    related:
+      - Smart Contract
+      - ABI
+      - Source Code
+
+  - term: Proxy Contract
+    definition: >-
+      A smart contract design pattern where one contract (the proxy) delegates
+      calls to a separate implementation contract, enabling contract logic to
+      be upgraded without changing the contract address. Arbiscan identifies
+      proxy contracts and links to their current implementation.
+    related:
+      - Smart Contract
+      - Implementation Contract
+      - Upgradeable Contract
+
+  - term: Solidity
+    definition: >-
+      The most widely used high-level programming language for writing Ethereum
+      and Arbitrum One smart contracts. Solidity code is compiled to EVM bytecode
+      before deployment, and verified source code is retrievable via the Arbiscan
+      contract API.
+    related:
+      - Smart Contract
+      - EVM
+      - Contract Verification
+
+token-standards:
+  - term: ERC-20
+    definition: >-
+      The fungible token standard on Ethereum and EVM-compatible chains like
+      Arbitrum One, defining a common interface including transfer, approve,
+      allowance, and balance functions. Major ERC-20 tokens on Arbitrum One
+      include USDC, USDT, ARB, WBTC, and wrapped ETH (WETH).
+    related:
+      - ERC-721
+      - ERC-1155
+      - Token Transfer
+
+  - term: ERC-721
+    definition: >-
+      The non-fungible token (NFT) standard on Ethereum and EVM-compatible chains,
+      where each token has a unique ID and represents a distinct digital asset.
+      Arbiscan tracks ERC-721 transfers and inventory per address.
+    aliases:
+      - NFT
+    related:
+      - ERC-20
+      - ERC-1155
+      - Token Transfer
+
+  - term: ERC-1155
+    definition: >-
+      A multi-token standard supporting both fungible and non-fungible tokens
+      within a single contract. ERC-1155 is commonly used for gaming assets and
+      collections. Arbiscan tracks ERC-1155 transfers and balances per address.
+    related:
+      - ERC-20
+      - ERC-721
+      - Token Transfer
+
+  - term: Token Transfer
+    definition: >-
+      An on-chain movement of ERC-20, ERC-721, or ERC-1155 tokens from one
+      address to another, emitted as a Transfer event in the token contract.
+      Arbiscan indexes token transfers and makes them queryable by address,
+      contract, or block range.
+    related:
+      - ERC-20
+      - ERC-721
+      - Event Log
+
+explorer-concepts:
+  - term: Chain ID
+    definition: >-
+      A unique numeric identifier for a blockchain network used in the Etherscan
+      V2 API to specify the target chain. Arbitrum One uses chain ID 42161.
+      Other Arbitrum networks include Arbitrum Nova (42170) and Arbitrum Sepolia
+      testnet (421614).
+    related:
+      - Arbitrum One
+      - Etherscan V2
+      - API Key
+
+  - term: Etherscan V2
+    definition: >-
+      The unified Etherscan API platform that provides a single API key and
+      endpoint for querying blockchain data across 60+ EVM-compatible networks,
+      including Arbitrum One via Arbiscan. All requests include a chainid
+      parameter to select the target network.
+    related:
+      - Chain ID
+      - API Key
+      - Arbiscan
+
+  - term: Event Log
+    definition: >-
+      A structured record emitted by a smart contract during transaction execution,
+      containing indexed topics (for filtering) and non-indexed data. Event logs
+      are permanently stored on-chain and can be queried by contract address,
+      topic hash, and block range via the Arbiscan logs API.
+    related:
+      - Smart Contract
+      - Token Transfer
+      - Topic
+
+  - term: Topic
+    definition: >-
+      An indexed field within an event log, represented as a 32-byte hex value.
+      The first topic (topic0) is always the keccak-256 hash of the event
+      signature. Additional topics (topic1, topic2, topic3) are the indexed
+      parameters of the event.
+    related:
+      - Event Log
+      - keccak-256
+      - Smart Contract
+
+  - term: Sequencer
+    definition: >-
+      The entity responsible for ordering and batching transactions on Arbitrum One
+      before submitting them to Ethereum mainnet. The sequencer provides fast
+      transaction confirmations (typically under 1 second) and determines
+      transaction ordering within each block.
+    related:
+      - Arbitrum One
+      - Optimistic Rollup
+      - Block
+
+  - term: Block Explorer
+    definition: >-
+      A web application and API platform that indexes and provides searchable
+      access to blockchain data including transactions, addresses, blocks, smart
+      contracts, and tokens. Arbiscan is the official block explorer for
+      Arbitrum One.
+    related:
+      - Arbiscan
+      - Transaction
+      - Smart Contract
