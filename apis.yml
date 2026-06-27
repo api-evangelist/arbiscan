@@ -49,7 +49,7 @@ apis:
       - url: https://arbiscan.io/apis
         type: Pricing
       - url: https://arbiscan.io/myapikey
-        type: SignUp
+        type: Signup
       - url: https://arbiscan.io/apiterms
         type: TermsOfService
       - url: plans/arbiscan-plans-pricing.yml
@@ -74,9 +74,9 @@ common:
   - url: https://arbiscan.io/apiterms
     type: TermsOfService
   - url: https://arbiscan.io/myapikey
-    type: SignUp
+    type: Signup
   - url: https://docs.etherscan.io/llms.txt
-    type: LLMsTxt
+    type: LlmsText
   - type: GitHubOrganization
     url: https://github.com/arbiscan
 maintainers:
