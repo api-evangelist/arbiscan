@@ -65,6 +65,12 @@ apis:
       - url: vocabulary/arbiscan-vocabulary.yml
         type: Vocabulary
 common:
+  - type: VulnerabilityDisclosure
+    url: security/arbiscan-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/arbiscan-domain-security.yml
+  - type: Authentication
+    url: authentication/arbiscan-authentication.yml
   - url: https://arbiscan.io/
     type: Portal
   - url: https://docs.arbiscan.io/

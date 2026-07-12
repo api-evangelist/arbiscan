@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/arbiscan-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: Etherscan V2 API key from https://arbiscan.io/myapikey
+  sources:
+  - openapi/arbiscan-openapi.yml
