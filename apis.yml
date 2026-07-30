@@ -8,7 +8,20 @@ description: >-
   accessible across 60+ EVM-compatible chains with a single API key. A free tier provides 100,000 daily
   calls at 3 requests per second; paid tiers scale up to enterprise with unmetered access.
 url: https://raw.githubusercontent.com/api-evangelist/arbiscan/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/arbiscan.png
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -24,46 +37,230 @@ tags:
   - Web3
   - L2
 apis:
-  - aid: arbiscan:arbiscan
-    name: Arbiscan API
-    description: >-
-      The Arbiscan API provides programmatic access to Arbitrum One blockchain data, including account
-      balances, transaction histories, internal transactions, ERC-20/ERC-721/ERC-1155 token transfers,
-      smart contract verification and ABI retrieval, block rewards, event logs, and L2 network statistics
-      such as gas prices and total supply. Powered by the Etherscan V2 unified platform with chainid 42161
-      for Arbitrum One, a single API key works across all supported EVM networks.
-    humanURL: https://docs.arbiscan.io/
-    baseURL: https://api.etherscan.io/v2/api
-    tags:
-      - Blockchain
-      - Cryptocurrency
-      - Arbitrum
-      - Layer 2
-      - EVM
-      - Transactions
-      - Smart Contracts
-      - Tokens
-    properties:
-      - url: https://docs.arbiscan.io/
-        type: Documentation
-      - url: https://arbiscan.io/apis
-        type: Pricing
-      - url: https://arbiscan.io/myapikey
-        type: Signup
-      - url: https://arbiscan.io/apiterms
-        type: TermsOfService
-      - url: plans/arbiscan-plans-pricing.yml
-        type: Plans
-      - url: rate-limits/arbiscan-rate-limits.yml
-        type: RateLimits
-      - url: finops/arbiscan-finops.yml
-        type: FinOps
-      - url: openapi/arbiscan-openapi.yml
-        type: OpenAPI
-      - url: json-ld/arbiscan-context.jsonld
-        type: JSONLDContext
-      - url: vocabulary/arbiscan-vocabulary.yml
-        type: Vocabulary
+- aid: arbiscan:arbiscan-accounts-api
+  name: Arbiscan Accounts API
+  description: Address balances, transactions, token holdings, and funding origins
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-blocks-api
+  name: Arbiscan Blocks API
+  description: Block details, rewards, countdown, and block-by-timestamp lookup
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-blocks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-contracts-api
+  name: Arbiscan Contracts API
+  description: Smart contract source code, ABI, creation info, and verification
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-gas-tracker-api
+  name: Arbiscan Gas Tracker API
+  description: Arbitrum One gas oracle and gas price estimates
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Gas Tracker
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-gas-tracker-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-logs-api
+  name: Arbiscan Logs API
+  description: Event log queries by address, topic, and block range
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-logs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-stats-api
+  name: Arbiscan Stats API
+  description: Arbitrum One network statistics, supply data, and daily metrics
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-stats-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-tokens-api
+  name: Arbiscan Tokens API
+  description: ERC-20, ERC-721, and ERC-1155 token supply, holders, and metadata
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
+- aid: arbiscan:arbiscan-transactions-api
+  name: Arbiscan Transactions API
+  description: Transaction status, receipts, counts, and advanced filtering
+  humanURL: https://docs.arbiscan.io/
+  baseURL: https://api.etherscan.io/v2/api
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/arbiscan-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arbiscan.io/
+  - type: Pricing
+    url: https://arbiscan.io/apis
+  - type: Signup
+    url: https://arbiscan.io/myapikey
+  - type: TermsOfService
+    url: https://arbiscan.io/apiterms
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
+  - type: JSONLDContext
+    url: json-ld/arbiscan-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/arbiscan-vocabulary.yml
 common:
   - type: AgenticAccess
     url: agentic-access/arbiscan-agentic-access.yml
