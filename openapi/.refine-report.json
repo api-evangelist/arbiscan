@@ -1,0 +1,28 @@
+{
+  "provider": "arbiscan",
+  "sources": [
+    "arbiscan-accounts-api-openapi.yml",
+    "arbiscan-blocks-api-openapi.yml",
+    "arbiscan-contracts-api-openapi.yml",
+    "arbiscan-gas-tracker-api-openapi.yml",
+    "arbiscan-logs-api-openapi.yml",
+    "arbiscan-stats-api-openapi.yml",
+    "arbiscan-tokens-api-openapi.yml",
+    "arbiscan-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "arbiscan-accounts-api-openapi.yml",
+    "arbiscan-blocks-api-openapi.yml",
+    "arbiscan-contracts-api-openapi.yml",
+    "arbiscan-gas-tracker-api-openapi.yml",
+    "arbiscan-logs-api-openapi.yml",
+    "arbiscan-stats-api-openapi.yml",
+    "arbiscan-tokens-api-openapi.yml",
+    "arbiscan-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
