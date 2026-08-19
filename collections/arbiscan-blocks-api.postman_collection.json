@@ -1,0 +1,833 @@
+{
+  "item": [
+    {
+      "id": "fc9bf0be-4212-44ac-b8d1-d2dfac53f8aa",
+      "name": "Blocks",
+      "description": {
+        "content": "Block details, rewards, countdown, and block-by-timestamp lookup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e579d0e3-834f-4190-8018-9a03e912ad38",
+          "name": "Arbiscan API Endpoint",
+          "request": {
+            "name": "Arbiscan API Endpoint",
+            "description": {
+              "content": "All Arbiscan API calls are issued against the Etherscan V2 unified endpoint. Set chainid=42161 for Arbitrum One. The module and action parameters select the operation. An API key is required for all calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chainid",
+                  "value": "<integer>",
+                  "description": "(Required) Numeric chain ID. Use 42161 for Arbitrum One. Other Arbitrum networks: 42170 (Arbitrum Nova), 421614 (Arbitrum Sepolia testnet)."
+                },
+                {
+                  "disabled": false,
+                  "key": "module",
+                  "value": "<string>",
+                  "description": "(Required) API module name. One of: account, contract, transaction, block, logs, token, gastracker, stats."
+                },
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "<string>",
+                  "description": "(Required) Action within the selected module. See module-specific documentation for available actions."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Arbitrum One address (checksummed or lowercase) for account or token operations."
+                },
+                {
+                  "disabled": false,
+                  "key": "contractaddress",
+                  "value": "<string>",
+                  "description": "Smart contract or token contract address."
+                },
+                {
+                  "disabled": false,
+                  "key": "txhash",
+                  "value": "<string>",
+                  "description": "Transaction hash for transaction-specific queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "blockno",
+                  "value": "<integer>",
+                  "description": "Block number for block-specific queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "startblock",
+                  "value": "<integer>",
+                  "description": "Starting block number for range queries (default 0)."
+                },
+                {
+                  "disabled": false,
+                  "key": "endblock",
+                  "value": "<integer>",
+                  "description": "Ending block number for range queries (default 99999999)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for paginated results (default 1)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Number of results per page (max 10000, default 10)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results."
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Block tag (latest, earliest, pending) or hex block number for balance queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic0",
+                  "value": "<string>",
+                  "description": "Keccak-256 hash of the event signature for log filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic1",
+                  "value": "<string>",
+                  "description": "Second event topic for log filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic0_1_opr",
+                  "value": "<string>",
+                  "description": "Operator between topic0 and topic1 (and or or)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromBlock",
+                  "value": "<integer>",
+                  "description": "Starting block for log queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "toBlock",
+                  "value": "<integer>",
+                  "description": "Ending block for log queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for block-by-timestamp queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "closest",
+                  "value": "<string>",
+                  "description": "Direction to find closest block to timestamp (before or after)."
+                },
+                {
+                  "disabled": false,
+                  "key": "boolean",
+                  "value": "<string>",
+                  "description": "Boolean value for proxy-verification queries (true or false)."
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) Your Etherscan/Arbiscan API key from https://arbiscan.io/myapikey"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49c8cb9f-3ceb-44c5-8630-c634100b9737",
+              "name": "Successful response. The result field contains module-specific payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainid",
+                      "value": "42161"
+                    },
+                    {
+                      "key": "module",
+                      "value": "account"
+                    },
+                    {
+                      "key": "action",
+                      "value": "balance"
+                    },
+                    {
+                      "key": "address",
+                      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                    },
+                    {
+                      "key": "contractaddress",
+                      "value": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                    },
+                    {
+                      "key": "txhash",
+                      "value": "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                    },
+                    {
+                      "key": "blockno",
+                      "value": "12345678"
+                    },
+                    {
+                      "key": "startblock",
+                      "value": "0"
+                    },
+                    {
+                      "key": "endblock",
+                      "value": "99999999"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "topic0",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic0_1_opr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "closest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "boolean",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "YourApiKeyToken"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"1\",\n  \"message\": \"OK\",\n  \"result\": \"2483689898977207\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83e583ec-7f7d-4422-91c7-f16e7b7894a9",
+              "name": "Invalid request — missing or malformed parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainid",
+                      "value": "42161"
+                    },
+                    {
+                      "key": "module",
+                      "value": "account"
+                    },
+                    {
+                      "key": "action",
+                      "value": "balance"
+                    },
+                    {
+                      "key": "address",
+                      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                    },
+                    {
+                      "key": "contractaddress",
+                      "value": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                    },
+                    {
+                      "key": "txhash",
+                      "value": "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                    },
+                    {
+                      "key": "blockno",
+                      "value": "12345678"
+                    },
+                    {
+                      "key": "startblock",
+                      "value": "0"
+                    },
+                    {
+                      "key": "endblock",
+                      "value": "99999999"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "topic0",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic0_1_opr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "closest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "boolean",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "YourApiKeyToken"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a56bf1d-e253-499a-92e9-ec5480fbc2fa",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainid",
+                      "value": "42161"
+                    },
+                    {
+                      "key": "module",
+                      "value": "account"
+                    },
+                    {
+                      "key": "action",
+                      "value": "balance"
+                    },
+                    {
+                      "key": "address",
+                      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                    },
+                    {
+                      "key": "contractaddress",
+                      "value": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                    },
+                    {
+                      "key": "txhash",
+                      "value": "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                    },
+                    {
+                      "key": "blockno",
+                      "value": "12345678"
+                    },
+                    {
+                      "key": "startblock",
+                      "value": "0"
+                    },
+                    {
+                      "key": "endblock",
+                      "value": "99999999"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "topic0",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic0_1_opr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "closest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "boolean",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "YourApiKeyToken"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d59da97b-d840-4e82-81a0-b6cbcc56abf9",
+              "name": "Rate limit exceeded. Free tier allows 3 req/s and 100,000 calls/day.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainid",
+                      "value": "42161"
+                    },
+                    {
+                      "key": "module",
+                      "value": "account"
+                    },
+                    {
+                      "key": "action",
+                      "value": "balance"
+                    },
+                    {
+                      "key": "address",
+                      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                    },
+                    {
+                      "key": "contractaddress",
+                      "value": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                    },
+                    {
+                      "key": "txhash",
+                      "value": "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                    },
+                    {
+                      "key": "blockno",
+                      "value": "12345678"
+                    },
+                    {
+                      "key": "startblock",
+                      "value": "0"
+                    },
+                    {
+                      "key": "endblock",
+                      "value": "99999999"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "topic0",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic0_1_opr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "closest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "boolean",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "YourApiKeyToken"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69e334bf-4328-42e4-b118-8065ca8b0c2d",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainid",
+                      "value": "42161"
+                    },
+                    {
+                      "key": "module",
+                      "value": "account"
+                    },
+                    {
+                      "key": "action",
+                      "value": "balance"
+                    },
+                    {
+                      "key": "address",
+                      "value": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+                    },
+                    {
+                      "key": "contractaddress",
+                      "value": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+                    },
+                    {
+                      "key": "txhash",
+                      "value": "0x1e2910a262b1008d0616a0beb24c1a491d78771baa54a33e66065e03b1f46bc1"
+                    },
+                    {
+                      "key": "blockno",
+                      "value": "12345678"
+                    },
+                    {
+                      "key": "startblock",
+                      "value": "0"
+                    },
+                    {
+                      "key": "endblock",
+                      "value": "99999999"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "topic0",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic0_1_opr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toBlock",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "closest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "boolean",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "YourApiKeyToken"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.etherscan.io/v2/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1e0ac9ec-3f30-4d75-b45a-ab886d09fa06",
+    "name": "Arbiscan Accounts Blocks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Arbiscan is the official blockchain explorer and API platform for Arbitrum One, the leading Ethereum Layer 2 scaling network. Built on the Etherscan V2 unified platform, the Arbiscan API provides programmatic access to Arbitrum One blockchain data including account balances, transaction histories, internal transactions, ERC-20/ERC-721/ERC-1155 token transfers, smart contract verification and ABI retrieval, block rewards, event logs, and L2 network statistics such as gas prices and total supply. The chainid for Arbitrum One is 42161. A single Etherscan V2 API key works across all 60+ supported EVM networks.\n\nContact Support:\n Name: Arbiscan Support",
+      "type": "text/plain"
+    }
+  }
+}

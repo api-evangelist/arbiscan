@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Arbiscan Accounts Transactions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Arbiscan API Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.etherscan.io/v2/api/",
+            "params": [
+              {
+                "name": "chainid",
+                "value": "",
+                "type": "query",
+                "description": "Numeric chain ID. Use 42161 for Arbitrum One. Other Arbitrum networks: 42170 (Arbitrum Nova), 421614 (Arbitrum Sepolia testnet)."
+              },
+              {
+                "name": "module",
+                "value": "",
+                "type": "query",
+                "description": "API module name. One of: account, contract, transaction, block, logs, token, gastracker, stats."
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "query",
+                "description": "Action within the selected module. See module-specific documentation for available actions."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Arbitrum One address (checksummed or lowercase) for account or token operations."
+              },
+              {
+                "name": "contractaddress",
+                "value": "",
+                "type": "query",
+                "description": "Smart contract or token contract address."
+              },
+              {
+                "name": "txhash",
+                "value": "",
+                "type": "query",
+                "description": "Transaction hash for transaction-specific queries."
+              },
+              {
+                "name": "blockno",
+                "value": "",
+                "type": "query",
+                "description": "Block number for block-specific queries."
+              },
+              {
+                "name": "startblock",
+                "value": "",
+                "type": "query",
+                "description": "Starting block number for range queries (default 0)."
+              },
+              {
+                "name": "endblock",
+                "value": "",
+                "type": "query",
+                "description": "Ending block number for range queries (default 99999999)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results (default 1)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 10000, default 10)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Block tag (latest, earliest, pending) or hex block number for balance queries."
+              },
+              {
+                "name": "topic0",
+                "value": "",
+                "type": "query",
+                "description": "Keccak-256 hash of the event signature for log filtering."
+              },
+              {
+                "name": "topic1",
+                "value": "",
+                "type": "query",
+                "description": "Second event topic for log filtering."
+              },
+              {
+                "name": "topic0_1_opr",
+                "value": "",
+                "type": "query",
+                "description": "Operator between topic0 and topic1 (and or or)."
+              },
+              {
+                "name": "fromBlock",
+                "value": "",
+                "type": "query",
+                "description": "Starting block for log queries."
+              },
+              {
+                "name": "toBlock",
+                "value": "",
+                "type": "query",
+                "description": "Ending block for log queries."
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for block-by-timestamp queries."
+              },
+              {
+                "name": "closest",
+                "value": "",
+                "type": "query",
+                "description": "Direction to find closest block to timestamp (before or after)."
+              },
+              {
+                "name": "boolean",
+                "value": "",
+                "type": "query",
+                "description": "Boolean value for proxy-verification queries (true or false)."
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "Your Etherscan/Arbiscan API key from https://arbiscan.io/myapikey"
+              }
+            ]
+          },
+          "docs": "All Arbiscan API calls are issued against the Etherscan V2 unified endpoint. Set chainid=42161 for Arbitrum One. The module and action parameters select the operation. An API key is required for all calls."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
