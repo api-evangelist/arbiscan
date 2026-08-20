@@ -43,6 +43,8 @@ apis:
   humanURL: https://docs.arbiscan.io/
   baseURL: https://api.etherscan.io/v2/api
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -239,6 +241,8 @@ apis:
   humanURL: https://docs.arbiscan.io/
   baseURL: https://api.etherscan.io/v2/api
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
