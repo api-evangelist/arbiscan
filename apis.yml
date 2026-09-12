@@ -81,6 +81,8 @@ apis:
   - type: Vocabulary
     url: vocabulary/arbiscan-vocabulary.yml
 common:
+  - type: Website
+    url: https://www.arbiscan.io/
   - type: AgenticAccess
     url: agentic-access/arbiscan-agentic-access.yml
   - type: VulnerabilityDisclosure
