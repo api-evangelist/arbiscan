@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Arbiscan Accounts API
-  description: Arbiscan is the official blockchain explorer and API platform for Arbitrum One, the leading Ethereum Layer 2 scaling network. Built on the Etherscan V2 unified platform, the Arbiscan API provides programmatic access to Arbitrum One blockchain data including account balances, transaction histories, internal transactions, ERC-20/ERC-721/ERC-1155 token transfers, smart contract verification and ABI retrieval, block rewards, event logs, and L2 network statistics such as gas prices and total supply. The chainid for Arbitrum One is 42161. A single Etherscan V2 API key works across all 60+ supported EVM networks.
+  description: Arbiscan is the official blockchain explorer and API platform for Arbitrum One, the leading Ethereum Layer 2 scaling network.
   version: '2.0'
   contact:
     name: Arbiscan Support
