@@ -85,6 +85,12 @@ apis:
   - type: Vocabulary
     url: vocabulary/arbiscan-vocabulary.yml
 common:
+  - type: Plans
+    url: plans/arbiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arbiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/arbiscan-finops.yml
   - type: Website
     url: https://www.arbiscan.io/
   - type: AgenticAccess
