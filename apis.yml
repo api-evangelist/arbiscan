@@ -52,6 +52,13 @@ tags:
   - Layer 2
   - EVM
   - Web3
+tags_raw:
+  - Blockchain
+  - Cryptocurrency
+  - Arbitrum
+  - Layer 2
+  - EVM
+  - Web3
   - L2
 apis:
 - aid: arbiscan:arbiscan-accounts-api
