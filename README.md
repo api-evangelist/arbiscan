@@ -64,23 +64,138 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arbiscan is the official blockchain explorer, search, API, and analytics platform for Arbitrum One, the leading Ethereum Layer 2 scaling network. It enables developers and users to query Arbitrum One transaction histories, token transfers (ERC-20, ERC-721, ERC-1155), smart contract source code and ABIs, block data, and L2 network statistics.
+Arbiscan is the official blockchain explorer, search, API, and analytics platform for Arbitrum One, the leading Ethereum Layer 2 scaling network. It enables developers and users to query Arbitrum One transaction histories, token transfers (ERC-20, ERC-721, ERC-1155), smart contract source code and ABIs, block data, and L2 network statistics. The Arbiscan API is part of the Etherscan unified V2 platform, accessible across 60+ EVM-compatible chains with a single API key. A free tier provides 100,000 daily calls at 3 requests per second; paid tiers scale up to enterprise with unmetered access.
 
-The Arbiscan API is part of the Etherscan unified V2 platform, accessible across 60+ EVM-compatible chains with a single API key using chainid 42161 for Arbitrum One.
+**Areas:** Blockchain · Cryptocurrency · Arbitrum · Layer 2 · EVM · Web3 · L2
 
-**Base URL:** `https://api.etherscan.io/v2/api` (with `chainid=42161`)
+## Arbiscan on APIs.io
 
-**Documentation:** https://docs.arbiscan.io/
+Everything profiled for Arbiscan is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arbiscan/](https://apis.io/providers/arbiscan/)** — or go straight to one of the APIs or properties below.
 
-**Pricing:** https://arbiscan.io/apis
+### APIs (1)
 
-## APIs
+- [Arbiscan Accounts API](https://apis.io/apis/arbiscan/arbiscan-accounts-api/) — Address balances, transactions, token holdings, and funding origins
 
-- **Arbiscan API** - REST API for querying Arbitrum One blockchain data including accounts, transactions, tokens, contracts, blocks, logs, and L2 network statistics.
+### Published properties
 
-## Resources
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- [apis.yml](apis.yml) - APIs.json 0.19 provider index
-- [plans/arbiscan-plans-pricing.yml](plans/arbiscan-plans-pricing.yml) - API Commons Plans definition
-- [rate-limits/arbiscan-rate-limits.yml](rate-limits/arbiscan-rate-limits.yml) - Rate limit definitions per tier
-- [finops/arbiscan-finops.yml](finops/arbiscan-finops.yml) - FinOps Framework / FOCUS cost mapping
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Arbiscan Agentic Access](https://apis.io/agentic-access/arbiscan/arbiscan-agentic-access/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Arbiscan Context](https://apis.io/jsonld/arbiscan/arbiscan-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Arbiscan Vocabulary](https://apis.io/vocabularies/arbiscan/arbiscan-vocabulary/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Arbiscan Accounts API](https://apis.io/collections/arbiscan/open-arbiscan-accounts-api/)
+- [Arbiscan Accounts Blocks API](https://apis.io/collections/arbiscan/open-arbiscan-blocks-api/)
+- [Arbiscan Accounts Contracts API](https://apis.io/collections/arbiscan/open-arbiscan-contracts-api/)
+- [Arbiscan Accounts Gas Tracker API](https://apis.io/collections/arbiscan/open-arbiscan-gas-tracker-api/)
+- [Arbiscan Accounts Logs API](https://apis.io/collections/arbiscan/open-arbiscan-logs-api/)
+- [Arbiscan Accounts Stats API](https://apis.io/collections/arbiscan/open-arbiscan-stats-api/)
+- [Arbiscan Accounts Tokens API](https://apis.io/collections/arbiscan/open-arbiscan-tokens-api/)
+- [Arbiscan Accounts Transactions API](https://apis.io/collections/arbiscan/open-arbiscan-transactions-api/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Arbiscan Authentication](https://apis.io/security/arbiscan/arbiscan-authentication/)
+- [Arbiscan Domain Security](https://apis.io/security/arbiscan/arbiscan-domain-security/)
+- [Arbiscan Vulnerability Disclosure](https://apis.io/security/arbiscan/arbiscan-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Arbiscan Plans Pricing](https://apis.io/plans/arbiscan/arbiscan-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Arbiscan Rate Limits](https://apis.io/rate-limits/arbiscan/arbiscan-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Arbiscan Finops](https://apis.io/finops/arbiscan/arbiscan-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.arbiscan.io/)
+- [Documentation](https://docs.arbiscan.io/)
+- [Pricing](https://arbiscan.io/apis)
+- [Terms of service](https://arbiscan.io/apiterms)
+- [GitHub](https://github.com/arbiscan)
+
+## API Evangelist rating
+
+**Kin Score 38.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 56.3 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 42.1 |
+
+**Agent readiness 26.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arbiscan/](https://apis.io/providers/arbiscan/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arbiscan: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arbiscan/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
